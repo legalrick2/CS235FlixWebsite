@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+
+{% block title %}CS235 Flix{% endblock %}
+
+
+{% block content %}
+
+{% for genre in all_genres %}
+        <a href = {{url_for("movies_bp.movie_genre_search", genre = genre.genre_name)}}>
+            <p>{{genre.genre_name}}</p>
+        </a>
+{% endfor %}
+
+{% endblock %}

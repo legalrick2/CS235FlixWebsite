@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+
+{% block title %}CS235 Flix{% endblock %}
+
+{% block content %}
+<div class = "divMovieList">
+{% for movie in selected_movies %}
+        <a href = {{url_for("movies_bp.movie_by_name", name = movie.title)}}>
+            <p>{{movie.title}}, {{movie.year}}</p>
+        </a>
+{% endfor %}
+{% if selected_movies|length == 0 %}
+        <p>Sorry! No movies found!</p>
+{% endif %}
+</div>
+
+{% if prevStartID is not none %}
+    <button class="btn-general" onclick="location.href='{{prevDisplayURL}}'">Back 10</button>
+{% else %}
+    <button class="btn-general-disabled" disabled>Back 10</button>
+{% endif %}
+
+{% if nextStartID is not none %}
+    <button class="btn-general" onclick="location.href='{{nextDisplayURL}}'">Next 10</button>
+{% else %}
+    <button class="btn-general-disabled" disabled>Next 10</button>
+{% endif %}
+
+{% endblock %}

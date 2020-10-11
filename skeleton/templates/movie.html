@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{movie.title}}{% endblock %}
+
+{% block content %}
+<h1>{{movie.title}}</h1>
+<h3>Release year: {{movie.year}}</h3>
+<h3>Director: {{movie.director.director_full_name}}</h3>
+
+<p>{{movie.description}}</p>
+
+<p>
+    Genres: 
+    {% for g in movie.genres %}
+        {{g.genre_name}}, 
+    {% endfor %}
+</p>
+
+<p>
+    Actors: 
+    {% for a in movie.actors %}
+        {{a.actor_full_name}}, 
+    {% endfor %}
+</p>
+
+<p>Rating: {{movie.rating}}/10</p>
+<p>Runtime: {{movie.runtime}} minutes</p>
+{% endblock %}

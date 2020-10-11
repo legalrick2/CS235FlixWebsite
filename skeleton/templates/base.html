@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+
+        <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='main.css') }}"
+        />
+
+    </head>
+
+    <header>
+        {% block topbar %}
+        <h2>CS235 Flix</h2>
+        | <a href= "/">Home</a> |  
+        <a href= "/random_movie">Random Movie</a> | 
+        <a href= "/movies/display">All Movies</a> | 
+        <a href= "/all_genres">Genres</a> | 
+
+        <form action="/movie_title_search">
+            <input type="search-bar" placeholder="Search within all titles..." name="words">
+            <button type="submit">Go!</button>
+        </form>
+
+        {% endblock %}
+    </header>
+
+    <body>
+        
+        {% block content %}
+        
+        {% endblock %}
+    </body>
+
+
+</html>
